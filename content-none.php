@@ -4,16 +4,16 @@
  *
  * @link       https://codex.wordpress.org/Template_Hierarchy
  *
- * @package    Arke
- * @copyright  Copyright (c) 2018, Danny Cooper
- * @license    http://opensource.org/licenses/gpl-2.0.php GNU Public License
+ * @package    10rt
+ * @copyright  Copyright (c) 2021, Hélio
+ * @license    unlicensed
  */
 
 ?>
 
 <section class="no-results not-found">
 	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'arke' ); ?></h1>
+		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', '10rt' ); ?></h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content">
@@ -22,7 +22,7 @@
 			<p>
 				<?php
 				/* translators: %s: link to new post admin screen */
-				printf( wp_kses( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'arke' ), array(
+				printf( wp_kses( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', '10rt' ), array(
 					'a' => array(
 						'href' => array(),
 					),
@@ -34,7 +34,7 @@
 
 			<p>
 				<?php
-				esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'arke' );
+				esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', '10rt' );
 				?>
 			</p>
 
@@ -44,7 +44,7 @@
 
 			<p>
 				<?php
-				esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'arke' );
+				esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', '10rt' );
 				?>
 			</p>
 

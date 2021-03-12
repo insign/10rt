@@ -7,9 +7,9 @@
  *
  * @link       https://codex.wordpress.org/Template_Hierarchy
  *
- * @package    Arke
- * @copyright  Copyright (c) 2018, Danny Cooper
- * @license    http://opensource.org/licenses/gpl-2.0.php GNU Public License
+ * @package    10rt
+ * @copyright  Copyright (c) 2021, Hélio
+ * @license    unlicensed
  */
 
 get_template_part( 'header' );
@@ -40,10 +40,10 @@ get_template_part( 'header' );
 		</div><!-- .site-content -->
 		<?php if ( get_page_by_path( 'archives' ) ) : ?>
 			<footer class="site-footer">
-				<a href="<?php echo esc_url( site_url( 'archives' ) ); ?>"><?php esc_html_e( 'View All Posts &rarr;', 'arke' ); ?></a>
+				<a href="<?php echo esc_url( site_url( 'archives' ) ); ?>"><?php esc_html_e( 'View All Posts &rarr;', '10rt' ); ?></a>
 			</footer><!-- .site-footer -->
 		<?php else : ?>
-			<?php arke_the_posts_navigation(); ?>
+			<?php trt_the_posts_navigation(); ?>
 		<?php endif; ?>
 		<?php wp_footer(); ?>
 	</body>

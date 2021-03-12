@@ -4,16 +4,16 @@
  *
  * @link       https://codex.wordpress.org/Template_Hierarchy
  *
- * @package    Arke
- * @copyright  Copyright (c) 2018, Danny Cooper
- * @license    http://opensource.org/licenses/gpl-2.0.php GNU Public License
+ * @package    10rt
+ * @copyright  Copyright (c) 2021, Hélio
+ * @license    unlicensed
  */
 
 ?>
 
 <article <?php post_class(); ?>>
 
-	<?php arke_thumbnail( 'arke-blog' ); ?>
+	<?php trt_thumbnail( '10rt-blog' ); ?>
 
 	<header class="entry-header">
 
@@ -29,10 +29,10 @@
 
 	<div class="entry-content">
 		<?php
-		the_content( esc_html__( 'Continue reading &rarr;', 'arke' ) );
+		the_content( esc_html__( 'Continue reading &rarr;', '10rt' ) );
 
 		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'arke' ),
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', '10rt' ),
 			'after'  => '</div>',
 		) );
 		?>

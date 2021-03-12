@@ -4,9 +4,9 @@
  *
  * @link       https://codex.wordpress.org/Template_Hierarchy
  *
- * @package    Arke
- * @copyright  Copyright (c) 2018, Danny Cooper
- * @license    http://opensource.org/licenses/gpl-2.0.php GNU Public License
+ * @package    10rt
+ * @copyright  Copyright (c) 2021, Hélio
+ * @license    unlicensed
  */
 
 ?>

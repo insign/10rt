@@ -7,9 +7,9 @@
  *
  * @link       https://codex.wordpress.org/Template_Hierarchy
  *
- * @package    Arke
- * @copyright  Copyright (c) 2018, Danny Cooper
- * @license    http://opensource.org/licenses/gpl-2.0.php GNU Public License
+ * @package    10rt
+ * @copyright  Copyright (c) 2021, Hélio
+ * @license    unlicensed
  */
 
 /*
@@ -29,7 +29,7 @@ if ( post_password_required() ) {
 				$comments_number = get_comments_number();
 			if ( '1' === $comments_number ) {
 				// translators: %s: post title.
-				printf( esc_html_x( 'One Comment', 'comments title', 'arke' ), get_the_title() );
+				printf( esc_html_x( 'One Comment', 'comments title', '10rt' ), get_the_title() );
 			} else {
 				printf(
 					/* translators: 1: number of comments, 2: post title */
@@ -38,7 +38,7 @@ if ( post_password_required() ) {
 						'%1$s Comments',
 						$comments_number,
 						'comments title',
-						'arke'
+						'10rt'
 					) ),
 					esc_html( number_format_i18n( $comments_number ) ),
 					get_the_title()
@@ -57,10 +57,10 @@ if ( post_password_required() ) {
 				<div class="nav-links">
 
 					<div class="nav-previous">
-						<?php previous_comments_link( esc_html__( '&larr; Older Comments', 'arke' ) ); ?>
+						<?php previous_comments_link( esc_html__( '&larr; Older Comments', '10rt' ) ); ?>
 					</div>
 					<div class="nav-next">
-						<?php next_comments_link( esc_html__( 'Newer Comments &rarr;', 'arke' ) ); ?>
+						<?php next_comments_link( esc_html__( 'Newer Comments &rarr;', '10rt' ) ); ?>
 					</div>
 
 				</div><!-- .nav-links -->
@@ -71,7 +71,7 @@ if ( post_password_required() ) {
 		<?php if ( ! comments_open() ) : // If comments are closed and there are comments, output a message? ?>
 
 			<p class="no-comments">
-				<?php esc_html_e( 'Comments are closed.', 'arke' ); ?>
+				<?php esc_html_e( 'Comments are closed.', '10rt' ); ?>
 			</p>
 
 		<?php

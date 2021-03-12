@@ -1,15 +1,15 @@
 <?php
 /**
- * Arke functions and definitions
+ * 10rt functions and definitions
  *
  * @link       https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package    Arke
- * @copyright  Copyright (c) 2018, Danny Cooper
- * @license    http://opensource.org/licenses/gpl-2.0.php GNU Public License
+ * @package    10rt
+ * @copyright  Copyright (c) 2021, Hélio
+ * @license    unlicensed
  */
 
-if ( ! function_exists( 'arke_setup' ) ) :
+if ( ! function_exists( 'trt_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -17,7 +17,7 @@ if ( ! function_exists( 'arke_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function arke_setup() {
+	function trt_setup() {
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -40,7 +40,7 @@ if ( ! function_exists( 'arke_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary Menu', 'arke' ),
+				'menu-1' => esc_html__( 'Primary Menu', '10rt' ),
 			)
 		);
 
@@ -63,7 +63,7 @@ if ( ! function_exists( 'arke_setup' ) ) :
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
 		// Add image size for blog posts, 640px wide (and unlimited height).
-		add_image_size( 'arke-blog', 640 );
+		add_image_size( '10rt-blog', 640 );
 
 		add_theme_support(
 			'infinite-scroll',
@@ -75,7 +75,7 @@ if ( ! function_exists( 'arke_setup' ) ) :
 
 	}
 endif;
-add_action( 'after_setup_theme', 'arke_setup' );
+add_action( 'after_setup_theme', 'trt_setup' );
 
 /**
  * Registers an editor stylesheet for the theme.
@@ -89,31 +89,31 @@ add_editor_style( 'editor-style.css' );
  *
  * @global int $content_width
  */
-function arke_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'arke_content_width', 640 );
+function trt_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'trt_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'arke_content_width', 0 );
+add_action( 'after_setup_theme', 'trt_content_width', 0 );
 
 /**
  * Enqueue scripts and styles.
  */
-function arke_scripts() {
-	wp_enqueue_style( 'arke-style', get_stylesheet_uri(), array(), '1.1.1' );
+function trt_scripts() {
+	wp_enqueue_style( 'trt-style', get_stylesheet_uri(), array(), '1.1.1' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
 }
-add_action( 'wp_enqueue_scripts', 'arke_scripts' );
+add_action( 'wp_enqueue_scripts', 'trt_scripts' );
 
-if ( ! function_exists( 'arke_thumbnail' ) ) :
+if ( ! function_exists('trt_thumbnail') ) :
 	/**
 	 * Output the thumbnail if it exists.
 	 *
 	 * @param string $size Thunbnail size to output.
 	 */
-	function arke_thumbnail( $size = '' ) {
+	function trt_thumbnail( $size = '' ) {
 
 		if ( has_post_thumbnail() ) {
 			?>
@@ -137,24 +137,24 @@ endif;
 /**
  * Add a pingback url auto-discovery header for singularly identifiable articles.
  */
-function arke_pingback_header() {
+function trt_pingback_header() {
 
 	if ( is_singular() && pings_open() ) {
 		echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
 	}
 
 }
-add_action( 'wp_head', 'arke_pingback_header' );
+add_action( 'wp_head', 'trt_pingback_header' );
 
-if ( ! function_exists( 'arke_the_posts_navigation' ) ) :
+if ( ! function_exists('trt_the_posts_navigation') ) :
 	/**
 	 * Displays the navigation to next/previous set of posts, when applicable.
 	 */
-	function arke_the_posts_navigation() {
+	function trt_the_posts_navigation() {
 		$args = array(
-			'prev_text'          => esc_html__( '&larr; Older Posts', 'arke' ),
-			'next_text'          => esc_html__( 'Newer Posts &rarr;', 'arke' ),
-			'screen_reader_text' => esc_html__( 'Posts Navigation', 'arke' ),
+			'prev_text'          => esc_html__( '&larr; Older Posts', '10rt' ),
+			'next_text'          => esc_html__( 'Newer Posts &rarr;', '10rt' ),
+			'screen_reader_text' => esc_html__( 'Posts Navigation', '10rt' ),
 		);
 		the_posts_navigation( $args );
 	}
@@ -163,7 +163,7 @@ endif;
 /**
  * Display the admin notice.
  */
-function arke_admin_notice() {
+function trt_admin_notice() {
 	global $current_user;
 	$user_id = $current_user->ID;
 
@@ -174,7 +174,7 @@ function arke_admin_notice() {
 	if ( ! current_user_can( 'install_plugins' ) ) {
 		return;
 	}
-	if ( ! get_user_meta( $user_id, 'arke_ignore_notice' ) ) {
+	if ( ! get_user_meta( $user_id, 'trt_ignore_notice' ) ) {
 		?>
 
 		<div class="notice notice-info">
@@ -182,12 +182,12 @@ function arke_admin_notice() {
 				<?php
 				printf(
 					/* translators: 1: plugin link */
-					esc_html__( 'Easily change the font of your website with our new plugin - %1$s', 'arke' ),
+					esc_html__( 'Easily change the font of your website with our new plugin - %1$s', '10rt' ),
 					'<a href="' . esc_url( admin_url( 'plugin-install.php?s=olympus+google+fonts&tab=search&type=term' ) ) . '">Fonts Plugin</a>'
 				);
 				?>
 				<span style="float:right">
-					<a href="?arke_ignore_notice=0"><?php esc_html_e( 'Hide Notice', 'arke' ); ?></a>
+					<a href="?trt_ignore_notice=0"><?php esc_html_e( 'Hide Notice', '10rt' ); ?></a>
 				</span>
 			</p>
 		</div>
@@ -195,19 +195,19 @@ function arke_admin_notice() {
 		<?php
 	}
 }
-add_action( 'admin_notices', 'arke_admin_notice' );
+add_action( 'admin_notices', 'trt_admin_notice' );
 /**
  * Dismiss the admin notice.
  */
-function arke_dismiss_admin_notice() {
+function trt_dismiss_admin_notice() {
 	global $current_user;
 	$user_id = $current_user->ID;
 	/* If user clicks to ignore the notice, add that to their user meta */
-	if ( isset( $_GET['arke_ignore_notice'] ) && '0' === $_GET['arke_ignore_notice'] ) {
-		add_user_meta( $user_id, 'arke_ignore_notice', 'true', true );
+	if ( isset( $_GET['trt_ignore_notice'] ) && '0' === $_GET['trt_ignore_notice'] ) {
+		add_user_meta( $user_id, 'trt_ignore_notice', 'true', true );
 	}
 }
-add_action( 'admin_init', 'arke_dismiss_admin_notice' );
+add_action( 'admin_init', 'trt_dismiss_admin_notice' );
 
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**
@@ -218,4 +218,4 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 	}
 endif;
 
-$tags_list = get_the_tag_list( '', esc_html__( ', ', 'arke' ) );
+$tags_list = get_the_tag_list( '', esc_html__( ', ', '10rt' ) );

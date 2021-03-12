@@ -2,9 +2,9 @@
 /**
  * Template Name: Archive Template
  *
- * @package    Arke
- * @copyright  Copyright (c) 2018, Danny Cooper
- * @license    http://opensource.org/licenses/gpl-2.0.php GNU Public License
+ * @package    10rt
+ * @copyright  Copyright (c) 2021, Hélio
+ * @license    unlicensed
  */
 
 get_template_part( 'header' );
@@ -21,14 +21,14 @@ get_template_part( 'header' );
 					'posts_per_page' => -1,
 				);
 
-				$arke_posts = new WP_Query( $args );
+				$trt_posts = new WP_Query( $args );
 
-				if ( $arke_posts->have_posts() ) :
+				if ( $trt_posts->have_posts() ) :
 
 					echo '<ul class="archives__list">';
 
-					while ( $arke_posts->have_posts() ) :
-						$arke_posts->the_post();
+					while ( $trt_posts->have_posts() ) :
+						$trt_posts->the_post();
 
 						echo '<li><a href="' . esc_url( get_the_permalink() ) . '">' . get_the_title() . '</a><span>' . esc_attr( get_the_time( 'F j, Y' ) ) . '</span></li>';
 
@@ -39,7 +39,7 @@ get_template_part( 'header' );
 					wp_reset_postdata();
 
 				else :
-						echo '<p>' . esc_html__( 'Sorry, no posts matched your criteria.', 'arke' ) . '</p>';
+						echo '<p>' . esc_html__( 'Sorry, no posts matched your criteria.', '10rt' ) . '</p>';
 				endif;
 				?>
 
@@ -47,11 +47,7 @@ get_template_part( 'header' );
 				</div><!-- .content-area -->
 		</div><!-- .site-content -->
 		<footer class="site-footer">
-				<?php
-				// translators: %1$s: theme name.
-				// translators: %2$s: theme author.
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'arke' ), '<a href="https://wordpress.org/themes/arke/">Arke</a>', 'Danny Cooper' );
-				?>
+
 		</footer><!-- .site-footer -->
 		<?php wp_footer(); ?>
 	</body>
