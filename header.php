@@ -32,7 +32,7 @@
 								</a>
 							</h1>
 
-						<?php else : ?>
+						<?php else : /* ?>
 
 							<p class="site-title">
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
@@ -40,7 +40,7 @@
 								</a>
 							</p>
 
-						<?php endif; ?>
+						<?php */ endif; ?>
 
 					</div><!-- .site-branding -->
 					<nav id="site-navigation" class="menu-1">
